@@ -6,30 +6,22 @@ importers:
     specifiers:
       '@antfu/eslint-config': ^0.25.2
       '@antfu/ni': ^0.16.3
-      '@antfu/utils': ^0.5.2
       '@types/node': ^18.0.3
       bumpp: ^8.2.1
       eslint: ^8.19.0
       esno: ^0.16.3
-      pnpm: ^7.5.0
-      rimraf: ^3.0.2
       typescript: ^4.7.4
       unbuild: ^0.7.4
-      vite: ^2.9.14
       vitest: ^0.18.0
     devDependencies:
       '@antfu/eslint-config': 0.25.2_4x5o4skxv6sl53vpwefgt23khm
       '@antfu/ni': 0.16.3
-      '@antfu/utils': 0.5.2
       '@types/node': 18.0.3
       bumpp: 8.2.1
       eslint: 8.19.0
       esno: 0.16.3
-      pnpm: 7.5.0
-      rimraf: 3.0.2
       typescript: 4.7.4
       unbuild: 0.7.4
-      vite: 2.9.14
       vitest: 0.18.0
 
 packages:
@@ -146,10 +138,6 @@ packages:
   /@antfu/ni/0.16.3:
     resolution: {integrity: sha512-/C1N/hORSJp1qJHr4oRqQzmWPqB6S42T4HV4dWhXOllPJkcqQA/L40U55Oc7Gq4Gm9pLeCNZn7YYU1kUK2Ekpg==}
     hasBin: true
-    dev: true
-
-  /@antfu/utils/0.5.2:
-    resolution: {integrity: sha512-CQkeV+oJxUazwjlHD0/3ZD08QWKuGQkhnrKo3e6ly5pd48VUpXbb77q0xMU4+vc2CkJnDS02Eq/M9ugyX20XZA==}
     dev: true
 
   /@babel/code-frame/7.18.6:
@@ -2720,12 +2708,6 @@ packages:
   /pluralize/8.0.0:
     resolution: {integrity: sha512-Nc3IT5yHzflTfbjgqWcCPpo7DaKy4FnpB0l/zCAW0Tc7jxAiuqSxHasntB3D7887LSrA93kDJ9IXovxJYxyLCA==}
     engines: {node: '>=4'}
-    dev: true
-
-  /pnpm/7.5.0:
-    resolution: {integrity: sha512-sb9wJNyx/d8l3Gze2jI1y8BGNbb/ga+JT3SrGNiH+C5KbtZ4wmgePBWGjaiGugcpT9+vQ5MO//+QlVWhMCpedQ==}
-    engines: {node: '>=14.6'}
-    hasBin: true
     dev: true
 
   /postcss-selector-parser/6.0.10:
