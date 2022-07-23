@@ -36,24 +36,35 @@ describe('retry', () => {
       await retry(callback.rejectCallback, 3)
     } catch (error: any) {
       expect(error.message).toBe('error')
-      expect(rejectSpy).toBeCalledTimes(3)
+      expect(rejectSpy).toBeCalledTimes(4)
     }
 
     try {
       await retry(callback.randomCallback, 3)
       expect(randomSpy).toBeCalledTimes(retryTimes + 1)
     } catch (error: any) {
-      expect(randomSpy).toBeCalledTimes(3)
+      expect(randomSpy).toBeCalledTimes(4)
     }
   })
 
   it('should throw error', async () => {
     retry(resolveCallback, 0).catch(err => {
-      expect(err.message).toBe('times must be greater than 0')
+      expect(err.message).toBe('times must be greater than or equal 0')
     })
 
     retry(resolveCallback, 1.1).catch(err => {
       expect(err.message).toBe('times must be an integer')
     })
+  })
+  it('should return retry times', async () => {
+    let times = 0
+    try {
+      await retry(callback.rejectCallback, 3, {
+        onRetry: (_retryTimes: number) => {
+          times = _retryTimes
+        },
+      })
+    } catch {}
+    expect(times).toBe(3)
   })
 })

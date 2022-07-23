@@ -1,6 +1,15 @@
-export const retry = async <T>(callback: () => Promise<T>, times: number): Promise<T> => {
-  if (times < 1) {
-    throw new Error('times must be greater than 0')
+export const retry = async <T>(
+  callback: () => Promise<T>,
+  times: number,
+  options: {
+    onRetry?: (retryTimes: number) => void
+  } = {},
+  rawRetryTimes: number = times,
+): Promise<T> => {
+  const { onRetry } = options
+
+  if (times < 0) {
+    throw new Error('times must be greater than or equal 0')
   }
 
   if (Math.round(times) !== times) {
@@ -11,8 +20,10 @@ export const retry = async <T>(callback: () => Promise<T>, times: number): Promi
     const result = await callback()
     return result
   } catch (err) {
-    if (times-- > 1) {
-      return retry(callback, times)
+    if (times >= 1) {
+      times--
+      onRetry?.(rawRetryTimes - times)
+      return retry(callback, times, options, rawRetryTimes)
     }
     return Promise.reject(err)
   }
